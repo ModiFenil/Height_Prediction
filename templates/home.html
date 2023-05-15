@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weight Input</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: powderblue;
+    }
+    
+    h1 {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 1em;
+    }
+    
+    form {
+      width: 200px;
+      margin: 0 auto;
+      padding: 1em;
+      border: 1px solid #ccc;
+    }
+    
+    input {
+      width: 100%;
+      padding: .5em;
+      border: 1px solid #ccc;
+    }
+    
+    button {
+      background-color: #000;
+      color: #fff;
+      font-weight: bold;
+      padding: .5em 1em;
+      border: none;
+      cursor: pointer;
+    }
+    
+    h2 {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>This Project will predict your height as per your weight</h1>
+  <form action="{{ url_for('predict_datapoint')}}" method="post">
+      <div class="row input-row">
+        <label for="Weight">Weight</label>
+        <input type="text" name="Weight" placeholder="Enter Weight Here" required="required" />
+      </div>
+      
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+    
+    <h2 style="text-align: center;">
+      THE PREDICTION OF YOUR HEIGHT IS: {{result}} CENTIMETER
+    </h2>
+  </body>
+</html>
